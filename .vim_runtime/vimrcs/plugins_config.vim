@@ -18,9 +18,11 @@ syntax on
 """"""""""""""""""""""""""
 " => Pymode plugin
 """"""""""""""""""""""""""
+let g:pymode_rope_goto_definition_bind = '<C-c>g'
 let g:pymode_rope_complete_on_dot = 0
 let g:pymode_rope_regenerate_on_write = 0
 
+let g:pymode_rope_completion_bind = '<C-Space>'
 """"""""""""""""""""""""""""""
 " => bufExplorer plugin
 """"""""""""""""""""""""""""""
