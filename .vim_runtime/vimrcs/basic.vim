@@ -76,7 +76,10 @@ vnoremap <Leader>s :sort<CR>
 vnoremap < <gv
 vnoremap > >gv 
 
-
+" various quitting typos
+ca Wq wq
+ca WQ wq
+ca Q q
 
 " Ignore case when searching
 set ignorecase
@@ -118,7 +121,8 @@ set foldcolumn=1
 syntax enable 
 
 try
-    colorscheme desert
+    colorscheme solarized
+    set background=light
 catch
 endtry
 

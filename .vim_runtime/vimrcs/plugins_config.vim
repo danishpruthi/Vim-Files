@@ -18,7 +18,7 @@ syntax on
 """"""""""""""""""""""""""
 " => Pymode plugin
 """"""""""""""""""""""""""
-let g:pymode_rope_goto_definition_bind = '<C-c>g'
+let g:pymode_rope_goto_definition_bind = 'N'
 let g:pymode_rope_complete_on_dot = 0
 let g:pymode_rope_regenerate_on_write = 0
 
@@ -112,7 +112,7 @@ au FileType mako vmap Si S"i${ _(<esc>2f"a) }<esc>
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 " => vim-airline config (force color)
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
-let g:airline_theme="luna"
+let g:airline_theme="silver"
 
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 " => Vimroom

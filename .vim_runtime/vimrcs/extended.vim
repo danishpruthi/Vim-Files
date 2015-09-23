@@ -25,11 +25,6 @@ if has("gui_macvim")
     au GUIEnter * set fullscreen
 endif
 
-" Some shortcuts
-ca Wq wq
-ca W w
-ca Q q
-
 " Disable scrollbars (real hackers don't use scrollbars for navigation!)
 set guioptions-=r
 set guioptions-=R
@@ -38,10 +33,11 @@ set guioptions-=L
 
 " Colorscheme
 if has("gui_running")
-    colorscheme desert256
+    colorscheme proton
 else
-    colorscheme desert256
-    let g:colors_name="desert256"
+    colorscheme proton
+    set background=light
+    let g:colors_name="proton"
 endif
 
 

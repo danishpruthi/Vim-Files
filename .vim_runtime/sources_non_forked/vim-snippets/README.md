@@ -1,6 +1,8 @@
 snipMate & UltiSnip Snippets
 ============================
 
+[![Build Status](https://travis-ci.org/honza/vim-snippets.svg)](https://travis-ci.org/honza/vim-snippets)
+
 This repository contains snippets files for various programming languages.
 
 It is community-maintained and many people have contributed snippet files and
@@ -57,6 +59,24 @@ AFAIK there is a nested-placeholder branch for snipMate too. snipMate is still
 improved by Adnan Zafar. So maybe time is not ready to make a final decision yet.
 
 [github issue/discussion](https://github.com/honza/vim-snippets/issues/363)
+
+Vendor Snippets
+---------------
+
+Additional library and framework snippets are available for UltiSnips users in
+the `UltiSnips/` directory. These files are removed from the default language
+namespaces to prevent them from all being loaded automatically. If there is a
+separate library, framework, or package you would like to support open a pull
+request!
+
+Additional snippets can be added to the current buffer with the
+`:UltiSnipsAddFiletypes` command followed by the snippet name without the
+"snippets" ending. For example, to add the JavaScript Jasmine snippets, run:
+`:UltiSnipsAddFiletypes javascript-jasmine`. To have this snippet loaded
+everytime a JavaScript file is opened or created you can add the command to your
+`.vim/ftplugin/javascript.vim` file.
+
+For more see the UltiSnips docs (`:help UltiSnips`).
 
 Installation
 ------------
@@ -205,7 +225,7 @@ to maintain snippets for a language, please get in touch.
 Notes: People are interested in snippets - and their interest may wane again.
 This list is kept up-to-date on a best effort basis.
 
-* Elixir - [iurifq](https://github.com/iurifq)
+* Elixir - [lpil](https://github.com/lpil), [iurifq](https://github.com/iurifq)
 * Falcon - [steveno](https://github.com/steveno)
 * HTML Django - [honza](http://github.com/honza)
 * Javascript - [honza](http://github.com/honza)
@@ -214,6 +234,7 @@ This list is kept up-to-date on a best effort basis.
 * Python - [honza](http://github.com/honza)
 * Ruby - [taq](http://github.com/taq)
 * Scala - [gorodinskiy](https://github.com/gorodinskiy)
+* Supercollider - [lpil](https://github.com/lpil)
 
 License
 -------
