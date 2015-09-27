@@ -8,11 +8,16 @@ au BufNewFile,BufRead *.jinja set syntax=htmljinja
 au BufNewFile,BufRead *.mako set ft=mako
 
 au FileType python map <buffer> F :set foldmethod=indent<cr>
+au FileType python map <buffer> M :set foldmethod=manual<cr>
 
 au FileType python inoremap <buffer> $r return 
 au FileType python inoremap <buffer> $i import 
 au FileType python inoremap <buffer> $p print 
-au FileType python inoremap <buffer> $f #--- PH ----------------------------------------------<esc>FP2xi
+au FileType python inoremap <buffer> $o f = open(PH, 'r')<esc>FP2xi
+au FileType python inoremap <buffer> $fi for i in range(PH):<esc>FP2xi
+au FileType python inoremap <buffer> $fj for j in range(PH):<esc>FP2xi
+au FileType python inoremap <buffer> $fk for k in range(PH):<esc>FP2xi
+au FileType python inoremap <buffer> $a append(PH):<esc>FP2xi
 au FileType python map <buffer> <leader>1 /class 
 au FileType python map <buffer> <leader>2 /def 
 au FileType python map <buffer> <leader>C ?class 
