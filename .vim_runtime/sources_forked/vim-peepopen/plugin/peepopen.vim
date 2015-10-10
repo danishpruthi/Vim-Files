@@ -10,7 +10,7 @@
 "   macmenu &File.New\ Tab key=<nop>
 "   map <D-t> <Plug>PeepOpen
 " end
-
+"
 " ============================================================================
 
 " Exit quickly when:
@@ -46,9 +46,6 @@ endif
 noremap <unique> <script> <Plug>PeepOpen <SID>Launch
 noremap <SID>Launch :call <SID>LaunchPeepOpenViaVim()<CR>
 
-if !hasmapto('<Plug>PeepOpen')
-  map! <unique> <silent> <Leader>p <Plug>PeepOpen
-endif
 
 let &cpo = s:save_cpo
 unlet s:save_cpo
