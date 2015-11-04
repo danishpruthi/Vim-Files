@@ -33,12 +33,13 @@ set guioptions-=L
 
 " Colorscheme
 if has("gui_running")
-    colorscheme proton
+    colorscheme monokai
 else
-    colorscheme proton
-    set background=light
-    let g:colors_name="proton"
+    colorscheme monokai
+    set background=dark
+    " let g:colors_name="distinguished"
 endif
+
 
 
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""

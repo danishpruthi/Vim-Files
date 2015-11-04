@@ -263,6 +263,10 @@ COMMANDS                                                          *go-commands*
     You may optionally pass any valid go test flags/options. For a full list
     please see `go help test`.
 
+    GoTest timesout automatically after 10 seconds. To customize the timeout
+    use |g:go_test_timeout|. This feature is disabled if any arguments are
+    passed to the `:GoTest` command.
+
     If [!] is not given the first error is jumped to.
 
                                                               *:GoTestFunc*
@@ -338,10 +342,12 @@ COMMANDS                                                          *go-commands*
     for the type that implements an interface under the cursor (or selected
     package) is shown quickfix list.
                                                                 *:GoRename*
-:GoRename [to]
+:GoRename[!] [to]
 
     Rename the identifier under the cursor to the desired new name. If no
     argument is given a prompt will ask for the desired identifier.
+
+    If [!] is not given the first error is jumped to.
 
 
                                                             *:GoOracleScope*
@@ -415,6 +421,16 @@ COMMANDS                                                          *go-commands*
     The referrers query shows the set of identifiers that refer to the same
     object as does the selected identifier, within any package in the analysis
     scope.
+
+                                                              *:GoMetaLinter*
+:GoMetaLinter [path]
+
+    Calls the underlying `gometalinter` tool and displays all warnings and
+    errors in a quickfix window. By default the following linters are enabled:
+    "'vet', 'golint', 'errcheck'". This can be changed with the
+    |g:go_metalinter_enabled| variable. To override the command completely use
+    the variable |g:go_metalinter_command|. To override the maximum linters
+    execution time use |g:go_metalinter_deadline| variable.
 
 
 ===============================================================================
@@ -565,6 +581,9 @@ Show send/receive corresponding to selected channel op
 
 Show all refs to entity denoted by selected identifier
 
+                                                            *(go-metalinter)*
+
+Calls `go-metalinter` for the current directory
 
 ===============================================================================
 TEXT OBJECTS                                                 *go-text-objects*
@@ -585,6 +604,14 @@ if			      "inside a function", select contents of a function,
 ===============================================================================
 SETTINGS                                                        *go-settings*
 
+                                                      *'g:go_test_timeout'*
+
+Use this option to change the test timeout of |:GoTest|. By default it is
+set to 10 seconds . >
+
+  let g:go_test_timeout= '10s'
+<
+
                                                 *'g:go_play_browser_command'*
 
 Use this option to change the browser that is used to open the snippet url
@@ -592,7 +619,7 @@ posted to play.golang.org with |:GoPlay| or for the relevant documentation
 used with |:GoDocBrowser|. By default it tries to find it automatically for
 the current OS. >
 
-  let g:play_browser_command = ''
+  let g:go_play_browser_command = ''
 <
                                                    *'g:go_play_open_browser'*
 
@@ -793,6 +820,13 @@ Highlights build constraints. By default it's disabled. >
 
 	let g:go_highlight_build_constraints = 0
 <
+                                        *'g:go_highlight_string_spellcheck*
+
+Specifies spell checking enabled for strings. Spelling errors are highlighted
+if |spell| is enabled. By default it's enabled. >
+
+	let g:go_highlight_string_spellcheck = 1
+<
 
                                                 *'g:go_autodetect_gopath'*
 
@@ -800,7 +834,7 @@ Automatically modifies GOPATH for certain directory structures, such as for
 the tool godep which has his own dependencies via the `Godeps` folder. What
 this means is that all tools are now working with the newly modified GOPATH.
 So |GoDef| for example jumps to the source inside the `Godeps` (vendored)
-source. Currently only `godep` is supported, in the near future more tool
+source. Currently `godep` and `gb` is supported, in the near future more tool
 supports will be added. By default it's enabled. >
 
 	let g:go_autodetect_gopath = 1
@@ -810,7 +844,30 @@ supports will be added. By default it's enabled. >
 Adds custom text objects. By default it's enabled. >
 
 	let g:go_textobj_enabled = 1
+<
 
+                                                  *'g:go_metalinter_enabled'*
+
+Specifies the currently enabled linters for the |GoMetaLinter| command. By
+default it's using `vet`, `golint` and `errcheck`
+>
+  let g:go_metalinter_enabled = ['vet', 'golint', 'errcheck']
+<
+                                                  *'g:go_metalinter_command'*
+
+Overrides the command to be executed when |GoMetaLinter| is called. This is
+an advanced settings and is for users who want to have a complete control
+over of how `gometalinter` should be executed. By default it's empty.
+>
+  let g:go_metalinter_command = ""
+<
+                                                  *'g:go_metalinter_deadline'*
+
+Overrides the maximum time the linters have to complete. By default it's 5
+seconds.
+>
+  let g:go_metalinter_deadline = "5s"
+<
 
 ===============================================================================
 TROUBLESHOOTING                                         *go-troubleshooting*
