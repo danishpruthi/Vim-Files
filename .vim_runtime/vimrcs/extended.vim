@@ -32,13 +32,7 @@ set guioptions-=l
 set guioptions-=L
 
 " Colorscheme
-if has("gui_running")
-    colorscheme monokai
-else
-    colorscheme monokai
-    set background=dark
-    " let g:colors_name="distinguished"
-endif
+set background=dark
 
 
 
