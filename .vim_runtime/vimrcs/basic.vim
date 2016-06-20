@@ -340,7 +340,16 @@ map <leader>x :e ~/buffer.md<cr>
 map <leader>pp :setlocal paste!<cr>
 
 
- 
+"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
+" => Some .md settings
+"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
+autocmd BufNewFile,BufReadPost *.md set filetype=markdown
+
+"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
+" => Some .txt settings
+"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
+autocmd BufNewFile,BufReadPre,FileReadPre  *.txt    set tabstop=8
+autocmd BufNewFile,BufReadPre,FileReadPre  *.txt    set tw=80
 
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 " => Helper functions
