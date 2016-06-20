@@ -344,6 +344,7 @@ map <leader>pp :setlocal paste!<cr>
 " => Some .md settings
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 autocmd BufNewFile,BufReadPost *.md set filetype=markdown
+autocmd BufNewFile,BufReadPre,FileReadPre  *.txt    set tw=80
 
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 " => Some .txt settings
